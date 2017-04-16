@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- saved from url=(0121)file:///C:/Users/farha/Desktop/Ex_Files_VPF_JS_PHP1/Ex_Files_VPF_JS_PHP1/Exercise%20Files/03-04/finished/forms/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Form Sample</title>
+	<link rel="stylesheet" href="./logIN_files/normalize.css">
+	<link rel="stylesheet" href="./logIN_files/mystyle.css">
+
+<!--[if lt IE 8]>
+	<style>
+		legend {
+			display: block;
+			padding: 0;
+			padding-top: 30px;
+			font-weight: bold;
+			font-size: 1.25em;
+			color: #FFD98D;
+			margin: 0 auto;
+		}
+	</style>
+<![endif]-->
+
+
+</head>
+<body>
+<form id="myform" name="theform" class="group" action="file:///C:/Users/farha/Desktop/Ex_Files_VPF_JS_PHP1/Ex_Files_VPF_JS_PHP1/Exercise%20Files/03-04/finished/forms/index.html#" method="POST">
+	<fieldset id="Changes" title="Log In" <span="" class="error">
+		<ol>
+			<li>
+				<label for="myuser">UserName<span id="myurlhint" class="hint"></span></label>
+                <input name="myuser" id="myuser" required="">
+                <br>
+              <label for="mypassword">Password<span id="myurlhint" class="hint"></span></label>
+				<input name="mypassword" type="password" id="mypassword" required="">
+                <br>
+				<button type="submit">Log In</button>
+			</li>
+		</ol>
+	</fieldset>
+</form>
+
+<script>
+
+	document.theform.myurl.onblur=function() {
+		if (document.theform.myurl.value==="") {
+			document.getElementById("formerror").innerHTML = "The URL field is required";
+		} //url empty
+
+		if (document.theform.myurl.value==="http://") {
+			document.getElementById("formerror").innerHTML = "Pleae add a valid URL";
+		} //url empty
+
+
+	} //onblur
+
+
+
+	document.theform.myurl.onchange=function() {
+		var theURL = document.theform.myurl.value;
+
+		if (theURL.indexOf("http://")) {
+			document.getElementById('formerror').innerHTML = "URLs must begin with http://";
+
+			document.theform.myurl.value = "http://"+document.theform.myurl.value;
+		} // doesn't have http://
+
+	} //onchange
+</script>
+
+</body></html>
